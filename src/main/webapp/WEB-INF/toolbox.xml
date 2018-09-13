@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<toolbox>
+	<tool>
+		<key>linkTools</key>
+		<scope>request</scope>
+		<class>org.apache.velocity.tools.struts.StrutsLinkTool</class>
+	</tool>
+	<tool>
+		<key>msgTools</key>
+		<scope>request</scope>
+		<class>org.apache.velocity.tools.struts.MessageTool</class>
+	</tool>
+	<tool>
+		<key>errorsTools</key>
+		<scope>request</scope>
+		<class>org.apache.velocity.tools.struts.ErrorsTool</class>
+	</tool>
+	<tool>
+		<key>formTools</key>
+		<scope>request</scope>
+		<class>org.apache.velocity.tools.struts.FormTool</class>
+	</tool>
+	<tool>
+		<key>tilesTools</key>
+		<scope>request</scope>
+		<class>org.apache.velocity.tools.struts.TilesTool</class>
+	</tool>
+	<tool>
+		<key>validatorTools</key>
+		<scope>request</scope>
+		<class>org.apache.velocity.tools.struts.ValidatorTool</class>
+	</tool>
+</toolbox>  

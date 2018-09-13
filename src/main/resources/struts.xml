@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.multipart.maxSize" value="20480000" />
+	<constant name="struts.action.extension" value=","></constant>
+
+	<package name="default" namespace="/" extends="struts-default">
+		<interceptors>
+		
+			<interceptor name="token" class="tokenInterceptor" />
+			<interceptor name="login" class="loginInterceptor" />
+
+			<interceptor-stack name="baseStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="token" />
+			</interceptor-stack>
+
+
+			<interceptor-stack name="fullStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="token" />
+				<interceptor-ref name="login" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="baseStack" />
+
+		<default-action-ref name="index"></default-action-ref>
+
+		<global-results>
+			<result name="login" type="redirect">sys/login_login?redirect=${redirectUrl}</result>
+			<result name="error">/page/template/error.vm</result>
+		</global-results>
+		
+		<!-- 默认action -->
+		<action name="index" class="indexAction">
+			<result name="index">/page/template/index.vm</result>
+		</action>
+	</package>
+
+	<include file="struts-config/*.xml" />
+
+</struts>

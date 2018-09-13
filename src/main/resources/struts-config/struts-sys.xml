@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="com.lyscharlie.web.action.sys" namespace="/sys" extends="default">
+		<action name="register_*" method="{1}" class="registerAction">
+			<result name="register">/page/template/sys/register.vm</result>
+			<result name="success" type="redirect">/sys/login_login</result>
+		</action>
+
+		<action name="login_*" method="{1}" class="loginAction">
+			<result name="login">/page/template/sys/login.vm</result>
+			<result name="success" type="redirect">/</result>
+		</action>
+
+		<action name="logout_*" method="{1}" class="logoutAction">
+			<result name="success" type="redirect">/sys/login_login</result>
+		</action>
+
+		<action name="area_*" method="{1}" class="areaAction"></action>
+		
+		<action name="image_*" method="{1}" class="imageAction">
+			<result name="show" type="redirect">http://112.124.18.176/images/${fileName}</result>
+		</action>
+	</package>
+</struts>
